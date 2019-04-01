@@ -1838,8 +1838,18 @@ void new_touch_dedup(char *, int);
 /*								*/
 /****************************************************************/
 
+int main(){
+
+  char* argvec[6] = { "iozone","-i0","-b","results.xls","-+s","1024"};
+  int argcount = 6;
+
+  real_main(argcount, argvec);
+
+}
+
+
 int
-main(argc,argv)
+real_main(argc,argv)
 int argc;
 char **argv;
 {

@@ -157,10 +157,10 @@ generic:	iozone_generic.o  libbif.o
 	$(CC)  -O $(LDFLAGS) iozone_generic.o libbif.o -o iozone
 
 #
-# Keystone build with no threads, no largefiles, no async I/O
+# Riscv_Musl build with no threads, no largefiles, no async I/O
 #
-keystone:	iozone_keystone.o  libbif.o
-	$(CCRV)  -O $(LDFLAGS) -static iozone_keystone.o libbif.o -o iozone
+riscv_musl:	iozone_riscv_musl.o  libbif.o
+	$(CCRV)  -O $(LDFLAGS) -static iozone_riscv_musl.o libbif.o -o iozone
 
 #
 # No ansii 'C' compiler HP build with no threads, no largefiles, no async I/O
@@ -789,12 +789,12 @@ iozone_generic.o:	iozone.c libbif.c
 	$(CC) -c -O -Dgeneric -Dunix -DHAVE_ANSIC_C -DNO_THREADS \
 		$(CFLAGS) libbif.c -o libbif.o
 
-iozone_keystone.o:	iozone.c libbif.c
+iozone_riscv_musl.o:	iozone.c libbif.c
 	@echo ""
-	@echo "Building iozone Keystone (Generic) "
+	@echo "Building iozone RISC-V + musl-libc (Generic) "
 	@echo ""
 	$(CCRV) -c -O -Dgeneric -Dunix -DHAVE_ANSIC_C -DNO_THREADS \
-		-DNAME='"Generic"' $(CFLAGS) iozone.c -o iozone_keystone.o
+		-DNAME='"RISC-V_musl"' $(CFLAGS) iozone.c -o iozone_riscv_musl.o
 	$(CCRV) -c -O -Dgeneric -Dunix -DHAVE_ANSIC_C -DNO_THREADS \
 		$(CFLAGS) libbif.c -o libbif.o
 
