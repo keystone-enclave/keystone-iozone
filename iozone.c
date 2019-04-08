@@ -1840,8 +1840,8 @@ void new_touch_dedup(char *, int);
 
 int main(){
 
-  char* argvec[6] = { "iozone","-i0","-b","results.xls","-+s","1024"};
-  int argcount = 6;
+  char* argvec[7] = { "iozone","-a","-b","results.xls","-+s","-q1M","1024"};
+  int argcount = 7;
 
   real_main(argcount, argvec);
 
