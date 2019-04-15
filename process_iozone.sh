@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "TODO process iozone"
+echo "No iozone autoprocessing"
