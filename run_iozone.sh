@@ -18,7 +18,7 @@ for RUN_N in $(seq $SHORT_REPS); do
     fi
 
     if [[ $RUN_KEYSTONE == 1 ]]; then
-        ${TEST_RUNNER} iozone ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${LARGE_FSZ} 0 0 > ${KEYSTONE_LOG_FILE} 2> ${KEYSTONE_LOG_FILE}.err
+        ${TEST_RUNNER} iozone ${EYRIE_FULL_SUPPORT} --utm-size ${DEFAULT_USZ} --freemem-size ${LARGE_FSZ} > ${KEYSTONE_LOG_FILE} 2> ${KEYSTONE_LOG_FILE}.err
         mv results.xls ${KEYSTONE_LOG_FILE}.xls
     fi
 done
